@@ -30,7 +30,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         let technologyArr = apiData.technology;
         let jqueryArr = apiData.jquery;
         let nodeArr = apiData.node;
-        
 
         function cardDisplay(arr) {
             arr.forEach((item) => {
@@ -38,17 +37,14 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             });
         }
 
-        
-
-
         cardDisplay(bootstrapArr);
         cardDisplay(javascriptArr);
         cardDisplay(technologyArr);
         cardDisplay(jqueryArr);
         cardDisplay(nodeArr);
-    })
-    
-    
+    });
+
+
 
 
 function cardCreator(tab) {
@@ -59,13 +55,13 @@ function cardCreator(tab) {
     headLine.classList.add('headline');
     headLine.textContent = tab.headline;
     card.appendChild(headLine);
-    
+
     const author = document.createElement('div');
     author.classList.add('author');
-    
+
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
-    
+
 
     const img = document.createElement('img');
     img.src = tab.authorPhoto;
@@ -75,12 +71,8 @@ function cardCreator(tab) {
     name.textContent = `By ${tab.authorName}`;
     author.appendChild(imgContainer);
     author.appendChild(name);
-    
 
-    
     card.appendChild(author);
-
-
 
     return card;
 }
