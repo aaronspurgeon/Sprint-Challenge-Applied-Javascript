@@ -19,31 +19,45 @@
 */
 
 const carouselContainer = document.querySelector('.carousel-container');
+const imgArr = [
+  './assets/carousel/mountains.jpeg',
+  './assets/carousel/computer.jpeg',
+  './assets/carousel/trees.jpeg',
+  './assets/carousel/turntable.jpeg'
+]
+
+
+
 
 function imageDisplay(parent, imgArr) {
-  let img = document.createElement('img');
-  img.src = imgArr;
-  parent.appendChild(img);
+  imgArr.forEach((item) => {
+    let newImg = document.createElement('img');
+    newImg.src = item;
+    parent.appendChild(newImg);
+  })
 }
 
 
-function carouselCreator() {
+function CarouselCreator() {
   const carousel = document.createElement('div');
   carousel.classList.add('carousel');
 
   const leftBtn = document.createElement('div');
   leftBtn.classList.add('left-button');
-  leftBtn.textContent = 'helllllooooo';
+  leftBtn.textContent = '<';
   carousel.appendChild(leftBtn);
 
-  // imageDisplay(carousel);
+  imageDisplay(carousel, imgArr);
   
-  console.log('hi')
+  
   const rightBtn = document.createElement('div');
   rightBtn.classList.add('right-button');
+  rightBtn.textContent = '>';
   carousel.appendChild(rightBtn);
 
   return carousel;
 }
-console.log('hi')
-// carouselContainer.appendChild(carouselCreator());
+
+console.log(CarouselCreator())
+
+carouselContainer.appendChild(CarouselCreator())
