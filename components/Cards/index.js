@@ -19,21 +19,36 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 const cardContainer = document.querySelector('.cards-container');
-// const bootstrapBtn = document.querySelector('')
+
+
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
-    .then((resp) => {
-        console.log(resp.data.articles)
-        let apiData = resp.data.articles;
-        console.log(apiData.bootstrap);
+    .then((response) => {
+        let apiData = response.data.articles;
         let bootstrapArr = apiData.bootstrap;
-        bootstrapArr.forEach((item) => {
-            cardContainer.appendChild(cardCreator(item))
-        })
-    })
-    .then((resp) => {
+        let javascriptArr = apiData.javascript;
+        let technologyArr = apiData.technology;
+        let jqueryArr = apiData.jquery;
+        let nodeArr = apiData.node;
         
+
+        function cardDisplay(arr) {
+            arr.forEach((item) => {
+                cardContainer.appendChild(cardCreator(item));
+            });
+        }
+
+        
+
+
+        cardDisplay(bootstrapArr);
+        cardDisplay(javascriptArr);
+        cardDisplay(technologyArr);
+        cardDisplay(jqueryArr);
+        cardDisplay(nodeArr);
     })
+    
+    
 
 
 function cardCreator(tab) {
@@ -54,7 +69,6 @@ function cardCreator(tab) {
 
     const img = document.createElement('img');
     img.src = tab.authorPhoto;
-    console.log(tab.authorPhoto);
     imgContainer.appendChild(img);
 
     const name = document.createElement('span');
