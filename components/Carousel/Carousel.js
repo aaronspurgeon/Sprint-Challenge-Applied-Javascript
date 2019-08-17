@@ -19,6 +19,7 @@
 */
 
 const carouselContainer = document.querySelector('.carousel-container');
+
 const imgArr = [
   './assets/carousel/mountains.jpeg',
   './assets/carousel/computer.jpeg',
@@ -48,6 +49,7 @@ function CarouselCreator() {
   carousel.appendChild(leftBtn);
 
   imageDisplay(carousel, imgArr);
+  
   
   
   const rightBtn = document.createElement('div');
